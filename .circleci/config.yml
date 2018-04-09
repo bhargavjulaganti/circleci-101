@@ -3,6 +3,10 @@ jobs:
   one:
     docker:
       - image: circleci/ruby:2.4.1
+    machine:
+      php:
+        version: 7.0.4
+
     steps:
       - checkout
       - run: echo "A first hello"
