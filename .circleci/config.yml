@@ -2,10 +2,7 @@ version: 2
 jobs:
   one:
     docker:
-      - image: circleci/ruby:2.4.1
-    machine:
-      php:
-        version: 7.0.4
+      - image: circleci/ruby:2.4.
 
     steps:
       - checkout
