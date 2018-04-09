@@ -6,6 +6,7 @@ jobs:
 
     steps:
       - checkout
+      - run: composer install -n --prefer-dist
       - run: echo "A first hello"
 workflows:
   version: 2
