@@ -1,15 +1,13 @@
 version: 2
 jobs:
-  Run-Regression-tests:
-    docker:
-      - image: circleci/php:7.1.16
-
-    steps:
-      - checkout      
-      - run: echo "A first hello"
+    Run-Regression-tests:
+        docker:
+            - {image: 'circleci/php:7.1.16'}
+        steps:
+            - checkout
+            - {run: 'echo "A first hello"'}
 workflows:
-  version: 2
-  one_and_two:
-    jobs:
-      - Run-Regression-tests
-      
+    version: 2
+    Regression-tests:
+        jobs:
+            - Run-Regression-tests
