@@ -5,8 +5,7 @@ jobs:
       - image: circleci/php:7.1.16
 
     steps:
-      - checkout
-      - run: composer install -n --prefer-dist
+      - checkout      
       - run: echo "A first hello"
 workflows:
   version: 2
