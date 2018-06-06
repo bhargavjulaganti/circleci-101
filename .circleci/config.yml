@@ -10,6 +10,7 @@ jobs:
             - {run: 'echo "A second hello"'}
             - {run: 'echo "A third hello"'}
             - {run: 'echo "A fourth hello"'}
+            - {run: 'echo "A fifth hello"'}
 workflows:
     version: 2
     Regression-tests:
