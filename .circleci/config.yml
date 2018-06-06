@@ -8,6 +8,7 @@ jobs:
             - {run: 'echo "A first hello"'}
             - {run: 'docker --version'}
             - {run: 'echo "A second hello"'}
+            - {run: 'echo "A third hello"'}
 workflows:
     version: 2
     Regression-tests:
