@@ -11,8 +11,14 @@ jobs:
             - {run: 'echo "A third hello"'}
             - {run: 'echo "A fourth hello"'}
             - {run: 'echo "A fifth hello"'}
+    Run-Integration-tests:
+        steps:
+            - {run:'echo ""Run-Integration-tests'}        
 workflows:
     version: 2
     Regression-tests:
         jobs:
-            - Run-Regression-tests
+            - Run-Regression-test
+            - Run-Integration-tests:
+                requires:
+                    - Run-Regression-test
