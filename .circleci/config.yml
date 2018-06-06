@@ -19,7 +19,7 @@ jobs:
         steps:
             - {run: 'echo "Run-Integration-tests"'} 
 
-    Run-Regression-tests-tests:
+    Run-Regression-tests:
         machine:
             enabled: true
         steps:
@@ -38,4 +38,4 @@ workflows:
                     - build        
             - Run-Regression-tests:
                 requires:
-                    - build        
+                    - build  
