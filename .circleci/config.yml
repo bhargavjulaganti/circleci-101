@@ -24,6 +24,11 @@ jobs:
             enabled: true
         steps:
             - {run: 'echo "Run-Regression-tests"'} 
+    deploy:
+        machine:
+            enabled: true
+        steps:
+            - {run: 'echo "Run-deployemnt"'}             
 
 workflows:
     version: 2
@@ -38,4 +43,9 @@ workflows:
                     - build        
             - Run-Regression-tests:
                 requires:
-                    - build        
+                    - build
+            - hold:
+                type: approval
+            -deploy:
+                requires:
+                    - hold       
