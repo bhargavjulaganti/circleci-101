@@ -29,11 +29,11 @@ workflows:
             - build      
             - Run-Regression-tests:
                 requires:
-                    - build 
+                    - build
             -hold:
                 type: approval
                 requires: 
                     - Run-Regression-tests
             -deploy:
                 requires:
-                    - hold         
+                    - hold  
