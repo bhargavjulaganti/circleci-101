@@ -13,7 +13,7 @@ jobs:
             - {run: 'echo "A fifth hello"'}
     Run-Integration-tests:
         steps:
-            - {run:'echo ""Run-Integration-tests'}        
+            - {run: 'echo ""Run-Integration-tests'}        
 workflows:
     version: 2
     Regression-tests:
