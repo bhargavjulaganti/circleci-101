@@ -20,7 +20,7 @@ workflows:
     version: 2
     Regression-tests:
         jobs:
-            - Run-Regression-test
+            - Run-Regression-tests
             - Run-Integration-tests:
                 requires:
-                    - Run-Regression-test
+                    - Run-Regression-tests
