@@ -12,6 +12,8 @@ jobs:
             - {run: 'echo "A fourth hello"'}
             - {run: 'echo "A fifth hello"'}
     Run-Integration-tests:
+        docker:
+            - {image: 'circleci/php:7.1.16'}
         steps:
             - {run: 'echo ""Run-Integration-tests'}        
 workflows:
