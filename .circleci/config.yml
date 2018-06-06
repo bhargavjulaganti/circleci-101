@@ -7,35 +7,33 @@ jobs:
             - checkout
             - {run: 'echo "run build"'}
 
-    Run-unit-tests:
-        machine:
-            enabled: true
-        steps:
-            - {run: 'echo "Run-unit-tests"'}         
-            
-    Run-Integration-tests:
-        machine:
-            enabled: true
-        steps:
-            - {run: 'echo "Run-Integration-tests"'} 
-
     Run-Regression-tests:
         machine:
             enabled: true
         steps:
             - {run: 'echo "Run-Regression-tests"'} 
 
+
+    deploy:
+            
+        machine:
+            enabled: true
+        steps:
+            - {run: 'echo "Run-Deployment"'}             
+            
+
 workflows:
     version: 2
     Regression-tests:
         jobs:
-            - build
-            - Run-unit-tests:
-                requires:
-                    - build
-            - Run-Integration-tests:
-                requires:
-                    - build        
+            - build      
             - Run-Regression-tests:
                 requires:
-                    - build  
+                    - build 
+            -hold:
+                type: approval
+                requires: 
+                    - Run-Regression-tests
+            -deploy:
+                requires:
+                    - hold         
