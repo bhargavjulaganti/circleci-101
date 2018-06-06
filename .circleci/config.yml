@@ -12,7 +12,8 @@ jobs:
             - {run: 'echo "A fourth hello"'}
             - {run: 'echo "A fifth hello"'}
     Run-Integration-tests:
-       
+        machine:
+            enabled: true
         steps:
             - {run: 'echo "Run-Integration-tests"'}        
 workflows:
