@@ -48,7 +48,8 @@ workflows:
                 type: approval
             - deploy:
                 requires:
-                    - hold
                     - Run-unit-tests
                     - Run-Integration-tests
-                    - Run-Regression-tests     
+                    - Run-Regression-tests  
+                    - hold                
+                     
