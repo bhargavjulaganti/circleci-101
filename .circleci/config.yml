@@ -1,26 +1,41 @@
 version: 2
 jobs:
-    Run-Regression-tests:
+    build:
         docker:
             - {image: 'circleci/php:7.1.16'}
         steps:
             - checkout
-            - {run: 'echo "A first hello"'}
-            - {run: 'docker --version'}
-            - {run: 'echo "A second hello"'}
-            - {run: 'echo "A third hello"'}
-            - {run: 'echo "A fourth hello"'}
-            - {run: 'echo "A fifth hello"'}
+            - {run: 'echo "run build"'}
+
+    Run-unit-tests:
+        machine:
+            enabled: true
+        steps:
+            - {run: 'echo "Run-unit-tests"'}         
+            
     Run-Integration-tests:
         machine:
             enabled: true
         steps:
-            - {run: 'echo "Run-Integration-tests"'}        
+            - {run: 'echo "Run-Integration-tests"'} 
+
+    Run-Regression-tests-tests:
+        machine:
+            enabled: true
+        steps:
+            - {run: 'echo "Run-Regression-tests"'} 
+
 workflows:
     version: 2
     Regression-tests:
         jobs:
-            - Run-Regression-tests
+            - build
+            - Run-unit-tests:
+                requires:
+                    - build
             - Run-Integration-tests:
                 requires:
-                    - Run-Regression-tests
+                    - build        
+            - Run-Regression-tests:
+                requires:
+                    - build        
