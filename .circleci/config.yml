@@ -46,6 +46,11 @@ workflows:
                     - build
             - hold:
                 type: approval
+                requires:                
+                    - Run-unit-tests
+                    - Run-Integration-tests
+                    - Run-Regression-tests  
+
             - deploy:
                 requires:
                     - Run-unit-tests
