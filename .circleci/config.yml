@@ -5,56 +5,10 @@ jobs:
             - {image: 'circleci/php:7.1.16'}
         steps:
             - checkout
-            - {run: 'echo "run build"'}
-
-    Run-unit-tests:
-        machine:
-            enabled: true
-        steps:
-            - {run: 'echo "Run-unit-tests"'}         
-            
-    Run-Integration-tests:
-        machine:
-            enabled: true
-        steps:
-            - {run: 'echo "Run-Integration-tests"'} 
-
-    Run-Regression-tests:
-        machine:
-            enabled: true
-        steps:
-            - {run: 'echo "Run-Regression-tests"'} 
-    deploy:
-        machine:
-            enabled: true
-        steps:
-            - {run: 'echo "Run-deployemnt"'}             
+            - {run: 'echo key'}
 
 workflows:
     version: 2
     Regression-tests:
         jobs:
             - build
-            - Run-unit-tests:
-                requires:
-                    - build
-            - Run-Integration-tests:
-                requires:
-                    - build        
-            - Run-Regression-tests:
-                requires:
-                    - build
-            - hold:
-                type: approval
-                requires:                
-                    - Run-unit-tests
-                    - Run-Integration-tests
-                    - Run-Regression-tests  
-
-            - deploy:
-                requires:
-                    - Run-unit-tests
-                    - Run-Integration-tests
-                    - Run-Regression-tests  
-                    - hold                
-                     
