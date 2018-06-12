@@ -1,4 +1,4 @@
-FROM docker pull centos/php-71-centos7
+FROM docker pull centos/php-71-centos7:7.1
 
 RUN yum clean all
 
