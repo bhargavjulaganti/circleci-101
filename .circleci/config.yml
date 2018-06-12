@@ -1,9 +1,9 @@
 version: 2
 jobs:
   build:
-    machine:
+    macos:
       # using custom image, see .circleci/images/primary/Dockerfile
-       image: circleci/classic:201708-01
+       xcode: "9.0"
 
        
     working_directory: '~/project'
@@ -14,9 +14,11 @@ jobs:
       - checkout
       - run: 'pwd'
       - run: 'ls'
+      - run: 'php -v'
 
       
-
+      - setup_remote_docker:
+           docker_layer_caching: true
 
       # This should go into custom primary image, here's only for the sake of explanation
       - run:
@@ -42,3 +44,4 @@ jobs:
             set -
             ls -latr
             docker-compose build testing-suite
+            docker-compose up       
