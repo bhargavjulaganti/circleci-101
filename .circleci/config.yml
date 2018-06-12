@@ -41,3 +41,4 @@ jobs:
           command: |
             set -
             ls -latr
+            docker-compose build testing-suite
