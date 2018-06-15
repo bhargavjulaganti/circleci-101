@@ -2,8 +2,14 @@ version: 2
 jobs:
   build:
     machine:
+      php:
+       version: 7.0.4
+
+      
+      
+      
       # using custom image, see .circleci/images/primary/Dockerfile
-       image: circleci/classic:201708-01
+      # image: circleci/classic:201708-01
 
        
     working_directory: '~/project'
