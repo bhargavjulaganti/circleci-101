@@ -20,7 +20,7 @@ jobs:
       - checkout
       - run: 'pwd'
       - run: 'ls'
-      - run: 'pecl install mongo'
+      - run: 'composer install'
 
       
 
