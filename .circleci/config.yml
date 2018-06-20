@@ -19,7 +19,7 @@ jobs:
             - {run:  'composer install -n --prefer-dist'}
            
             - {run: 'php --ini'}
-           # - {run: 'bin/run beta chrome testMeNow ONG2XB update'}
+           
 workflows:
     version: 2
     Regression-tests:
