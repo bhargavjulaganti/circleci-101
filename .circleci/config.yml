@@ -3,7 +3,9 @@ jobs:
     build:
         docker:
             - {image: 'circleci/php:7.1.16'}
-            #- {image: 'halplatform/hal-build-environments:php7.1-centos7'}
+               branches:
+         only:
+            - master
           
         steps:
             - checkout
@@ -12,11 +14,7 @@ jobs:
             - {run: 'ls'}
             - {run: 'php -v'}
             - {run: 'php --ini'}
-            - {run: 'sudo apt update && sudo apt install zlib1g-dev libsqlite3-dev'}
-            - {run: 'sudo docker-php-ext-install zip'}
-            - {run: 'sudo apt-get install -y libpng-dev'}
-            - {run: 'sudo docker-php-ext-install gd'}
-            - {run:  'composer install -n --prefer-dist'}
+
            
             - {run: 'php --ini'}
            
