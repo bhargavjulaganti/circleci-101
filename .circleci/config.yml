@@ -3,7 +3,7 @@ jobs:
     build:
         docker:
             - {image: 'circleci/php:7.1.16'}
-               branches:
+
          only:
             - master
           
