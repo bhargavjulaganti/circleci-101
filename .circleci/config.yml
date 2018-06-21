@@ -23,3 +23,6 @@ workflows:
     Regression-tests:
         jobs:
             - build
+                filters:
+                   branches:
+                      only: master
