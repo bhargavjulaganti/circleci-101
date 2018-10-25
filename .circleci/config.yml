@@ -28,8 +28,5 @@ workflows:
     triggers:
       - schedule:
           cron: "* * * * *"
-          filters:
-            branches:
-              only:
-                - master                  
+                 
                       
